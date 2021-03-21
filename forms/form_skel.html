@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fi">
+	<!--
+	This page demonstrates a form.
+	-->
+	<head>
+		<meta charset="utf-8"/>
+		<title>Demonstrating HTML forms</title>
+		<link rel="stylesheet" href="css/form.css">
+	</head>
+	
+	<body>
+		<h1>Turnitin</h1>
+		<form  lang="fi">
+			<fieldset>
+				<legend>Contact information</legend>
+			<div>
+				Name: <input type="text" name="studentname" placeholder="Etunimi Sukunimi" required="required" oninvalid="setCustomValidity('Syötä nimi')"/>
+			</div>
+			<div>
+				Student id: <input type="text" name="id" placeholder="12345678" oninvalid="setCustomValidity('Syötä opiskelijanumerosi - 8 numeroa')" pattern="[0-9]{8}$"/>
+			</div>
+			<div>
+				Email:<input type="email" name="email" placeholder="name.lname@xple.com" oninvalid="setCustomValidity('Syötä sähköpostiosoite')" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$"/>
+				<!--
+				Make an input named "email"
+				-->
+
+			</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Course inputs</legend>
+
+			<div>
+				Assignment: <input type="text" name="assignment" placeholder="ie. lab 04"/>
+				<!--
+				Make an input named "assignment"
+
+				-->
+				
+			</div>
+
+			<div>
+				Code: <input type="text" name="code" placeholder="ie. WSGAA-3009"/>
+				<!--
+				Make an input named "code" which is a text area to put student's code into.
+				-->
+				
+			</div>
+
+
+			<div>
+				Score:
+
+
+				<input list="score" placeholder="between 0-5" pattern="[0-5]{1}$" oninvalid="setCustomValidity('Anna arvosana 0-5')" required="required">
+				<datalist id="score">
+					<option value="Example0">0</option>
+					<option value="Example1">1</option>
+					<option value="Example2">2</option>
+					<option value="Example3">3</option>
+					<option value="Example4">4</option>
+					<option value="Example5">5</option>
+				</datalist>
+				<!--
+                    Make an input named "score" which is a list of choices for the score
+                -->
+			</div>
+
+				<div>
+					Cheat: <input type="checkbox" name="cheat"/>
+					<!--
+                        Make an input named "cheat" which is a check box the student must check.
+                    -->
+				</div>
+
+			</fieldset>
+
+			<div>
+				<fieldset>
+					<legend>Credit Card</legend>
+				Pay:
+				<label><input type="radio" name="payment" value="visa" checked="checked" />Visa</label>
+				<label><input type="radio" name="payment" value="paypal"/>PayPal</label>
+				<label><input type="radio" name="payment" value="mastercard"/>MasterCard</label>
+				</fieldset>
+			<!--
+				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
+			-->
+			</div>
+
+			<input type="submit" />
+		</form>
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
+	</body>
+</html>
