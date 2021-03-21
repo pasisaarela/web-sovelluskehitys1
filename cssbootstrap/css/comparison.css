@@ -1,0 +1,55 @@
+caption {
+    border: solid 2px gray;
+    border-bottom: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+table {
+    border-spacing: 0;
+    border: 2px solid gray;
+    text-indent: 20px;
+    font-size: large;
+    font-family: Calibri;
+}
+
+thead {
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    text-indent: 15px;
+}
+
+th {
+    padding-right: 10px;
+}
+
+td {
+    padding-right: 15px;
+}
+
+tbody {
+    font-size: 24px;
+}
+
+.type {
+    font-weight: bold;
+    font-size: x-large;
+    border-right: 2px solid gray;
+    text-indent: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(63,63,63,0.15);
+}
+
+p {
+    font-size: 28px;
+    text-indent: 35px;
+}
+
+span {
+    font-weight: bold;
+}
