@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> JSON </title>
+  <script>
+
+var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
+var fido = JSON.parse(fidoString);
+console.log("We have made a dog out of a string! " + fido.name);
+
+
+var fido2 = {
+	name: "Fido",
+	breed: "Mixed",
+	weight: 38
+};
+var fidoString = JSON.stringify(fido2);
+console.log("We made a string from a dog! " + fidoString);
+
+
+window.onload = function () {
+
+var car = {
+  model: {name: "Golf",
+          year: "2018"},
+  engine: {fuel: "petrol",
+           cc: "1600"},
+  manufacturer: "Volkswagen",
+  mileage: "30000"
+};
+
+var myString = JSON.stringify(car);
+console.log("Car object is now a string!" + myString)
+
+
+var div1 = document.createElement("div");
+
+div1.innerHTML = myString;
+document.body.appendChild(div1);
+
+var myObject = JSON.parse(myString);
+//console.log(myObject)
+var manufactured = myObject.model.year;
+
+var div2 = document.createElement("div");
+
+var myString2 = JSON.stringify(manufactured);
+div2.innerHTML = myString2;
+document.body.appendChild(div1);
+document.body.appendChild(div2);
+
+}
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
