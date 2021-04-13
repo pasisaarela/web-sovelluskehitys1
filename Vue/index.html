@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- tuotantoversio -->
+    <!--  <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+   </head>
+   <body>
+
+
+   <!-- Tehtävät 1 & 5 -->
+   <h2> Tehtävät 1 & 5  </h2>
+   <div id="app">
+       {{ message + ' - merkkijonon pituus: ' + pituus }}
+       <input v-model="message" placeholder="Kirjoita">
+   </div>
+
+   <hr>
+
+   <!-- Tehtävä 2 -->
+   <h2> Tehtävä 2</h2>
+   <div id="app-3">
+       <span v-if="seen">Now you see me</span>
+       <button v-on:click="seen = !seen">Näytä/Piilota</button>
+   </div>
+
+   <hr>
+
+   <!-- Tehtävä 3 -->
+   <h2>Tehtävä 3</h2>
+   <div id="player">
+       <p>Player speed: <span id="speed">{{ number }}</span></p>
+       <button v-on:click="faster"> + </button>
+       <button v-on:click="reset"> 0 </button>
+       <button v-on:click="slower"> - </button>
+
+   </div>
+
+   <hr>
+
+   <!-- Tehtävät 4, 6, 7 -->
+   <h2>Tehtävät 4, 6, 7</h2>
+   <div id="listaDiv">
+
+       <ul id="lista">
+           <li v-for="(item, index) in items" :key="item.message"
+               v-on:remove="items.splice(index, 1)"
+               v-bind:key="item.id"
+               v-bind:message="item.message">
+               {{ item.message + item.id }}
+               <button v-on:click="$emit(items.splice(index, 1))">Poista</button>
+           </li>
+           <input v-model="newItem" placeholder="">
+           <button v-on:click="lisaa"> Lisää </button>
+           <button v-on:click="poista"> Poista </button>
+       </ul>
+
+
+   </div>
+
+
+
+   <script>
+       var app = new Vue({
+           el: '#app',
+           data() {
+              return {
+                   message: ''
+               }
+           },
+           computed: {
+               pituus: function () {
+                   return this.message.length
+               }
+           }
+       })
+
+       var app3 = new Vue({
+           el: '#app-3',
+           data: {
+               seen: false
+           },
+       })
+
+       var playeri = new Vue({
+           el: '#player',
+           data: {
+               number: 0
+           },
+           methods: {
+
+               faster: function (fast) {
+                   playeri.number = playeri.number+1
+               },
+               reset: function (reset) {
+                   playeri.number = 0;
+               },
+               slower: function (slow) {
+                   playeri.number = playeri.number-1
+               }
+           }
+       })
+
+       var lista = new Vue({
+           el: '#lista',
+           data: {
+               items: [
+                   { message: 'Eka', id: 1 },
+                   { message: 'Toka', id: 2 }
+               ],
+               nextListId: 3
+           },
+           methods: {
+               lisaa: function (add){
+                   this.items.push({
+                       id: this.nextListId++,
+                       message: lista.newItem
+                   })
+               },
+               poista: function (rmv){
+                   this.items.splice(0, 1)
+               }
+           }
+       })
+
+
+   </script>
+
+   </body>
+   </html>
